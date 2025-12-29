@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Student Daily Planner Design System */
+
+@layer base {
+  :root {
+    /* Background & Surfaces */
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Primary - Deep Slate Blue */
+    --primary: 220 30% 15%;
+    --primary-foreground: 210 20% 98%;
+
+    /* Secondary - Soft Gray */
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 220 20% 30%;
+
+    /* Muted */
+    --muted: 210 15% 93%;
+    --muted-foreground: 215 15% 50%;
+
+    /* Accent - Soft Indigo */
+    --accent: 230 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Priority Colors - The Core Feature */
+    --priority-urgent: 0 84% 60%;
+    --priority-urgent-bg: 0 85% 97%;
+    --priority-urgent-text: 0 70% 35%;
+
+    --priority-normal: 38 92% 50%;
+    --priority-normal-bg: 45 100% 96%;
+    --priority-normal-text: 32 80% 30%;
+
+    --priority-safe: 160 84% 39%;
+    --priority-safe-bg: 152 76% 96%;
+    --priority-safe-text: 158 64% 25%;
+
+    /* System */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 230 80% 60%;
+
+    --radius: 0.75rem;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 25% 10% / 0.03);
+    --shadow-md: 0 4px 12px -2px hsl(220 25% 10% / 0.08);
+    --shadow-lg: 0 12px 32px -4px hsl(220 25% 10% / 0.12);
+    --shadow-glow-accent: 0 0 24px hsl(230 80% 60% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 25% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 222 25% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222 25% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 222 25% 12%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 15% 85%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 230 80% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Priority Colors - Dark Mode */
+    --priority-urgent: 0 72% 55%;
+    --priority-urgent-bg: 0 50% 15%;
+    --priority-urgent-text: 0 65% 75%;
+
+    --priority-normal: 38 85% 55%;
+    --priority-normal-bg: 40 50% 15%;
+    --priority-normal-text: 40 70% 75%;
+
+    --priority-safe: 160 65% 45%;
+    --priority-safe-bg: 160 40% 15%;
+    --priority-safe-text: 158 50% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 230 80% 65%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Priority Badge Styles */
+  .priority-badge-urgent {
+    @apply bg-priority-urgent-bg text-priority-urgent-text;
+  }
+
+  .priority-badge-normal {
+    @apply bg-priority-normal-bg text-priority-normal-text;
+  }
+
+  .priority-badge-safe {
+    @apply bg-priority-safe-bg text-priority-safe-text;
+  }
+
+  /* Priority Border Styles */
+  .priority-border-urgent {
+    border-left: 4px solid hsl(var(--priority-urgent));
+  }
+
+  .priority-border-normal {
+    border-left: 4px solid hsl(var(--priority-normal));
+  }
+
+  .priority-border-safe {
+    border-left: 4px solid hsl(var(--priority-safe));
+  }
+
+  /* Glass morphism card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-md;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  /* Safe area for bottom navigation on mobile */
+  .safe-area-pb {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+}
